@@ -1,18 +1,12 @@
 class Solution {
-    public int findPeakElement(int[] arr) {
-        int start = 0;
-        int end = arr.length - 1;
-        
-        while(start < end){
-            int mid = start + (end - start)/2;
-            if(arr[mid] > arr[mid+1]){
-                end = mid;
-            }
-            else{
-                start = mid +1;
+public:
+    int findPeakElement(vector<int>& nums) {
+        int n = nums.size();
+        for(int i=0; i<n-1; i++){
+            if(nums[i] > nums[i+1]){
+                return i;
             }
         }
-        return start;
-        
+        return n-1;
     }
-}
+};
